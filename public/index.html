@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Collaborate</title>
+	<link type="text/css" rel="stylesheet" href="styles/Collaborate.css" />
+</head>
+
+<body>
+	<script type="text/javascript" src="lib/jquery.js"></script>
+	<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.2.5/ace.js"></script>
+	<script type="text/javascript" src="js/Collaborate.js"></script>
+	<link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+		integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+	<script id="userTemplate" type="text/template">
+		<div class="header">
+				<span purpose="user-name"></span>
+				<span action="dismiss"><i class="fa fa-close " ></i> </span>
+			 </div>
+			 <div class="body">
+				
+				<div class="left">
+
+						<div class="whiteboard-wrapper"  purpose="whiteboard"> 				   
+								<div class="editingOption">
+										<div>
+											<div class="pensize black"> <i class="fa fa-pencil 2" style="font-size:0.9rem"> </i></a> </div>
+											<div class="pensize  black"> <i class="fa fa-pencil 3" style="font-size:1.2rem"> </i></a> </div>
+											<div class="pensize  black"> <i class="fa fa-pencil 6" style="font-size:1.8rem"> </i></a> </div>
+										</div>
+										<div>
+											<div class="color "> <i class="fa fa-circle black"> </i></a> </div>
+											<div class="color "> <i class="fa fa-circle red "> </i></div>
+											<div class="color "> <i class="fa fa-circle green"> </i></div>
+											<div class="color "><i class="fa fa-circle blue"> </i></div>
+											<div class="color "><i class="fa fa-circle yellow"> </i></div>
+										</div>
+										<div>
+											<div class="rubber"><i class="fa fa-eraser fa-2x"> </i> </div>
+										</div>
+									</div>
+								   <div class="whiteboardWrapper canvas-wrapper" >
+									  <canvas class="whiteboard" style="width:100%; height:480px" ></canvas>
+								   </div>
+								</div>
+
+
+				   <div class="editor-wrapper" purpose="editor"></div>
+				   <div class="screen-control" > 
+				  <div class="controlled-by-name"> <p>Controlled by: <span purpose="controlled-by"></span> </p></div>
+				  <div class="controlled-buttons">  <a href="#" action="control">Control</a> 
+				   <a href="#" action="release" disabled="disabled">Release</a> 
+				  </div>
+			    	</div>
+				</div>
+				<div class="right">
+				   <ul purpose="chat"></ul>
+				   <!-- <textarea purpose="chat" placeholder="Write your message"></textarea> -->
+				   <!-- <span id="sendicon"><i class="fa fa-paper-plane 5x fa-fw" aria-hidden="true" color="black"></i></span> -->
+				   
+
+				   <div class="ta-frame">
+					<textarea purpose="chat"  rows='1'></textarea>
+					<i id="sendicon" class="fa fa-paper-plane sendicon"></i>
+				  </div>
+				</div>
+			 </div>
+			 <div class="small-body">
+			 Last Activity : <span purpose="activity"></span>
+			 <div>
+   </script>
+
+
+	<div class="container-fluid">
+		<header class="header text-center">
+			<h4>Online Doubt Support</h1>
+		</header>
+		<div class="row">
+			<div class="col col-md-12 al">
+				</br>
+				<p class="text-center">
+					This is a real time chat application which,
+					with this application students could be able to avail online doubt support..</p>
+			</div>
+		</div>
+
+
+		<div class="row" id="onlineUsers">
+			<div class="col-md-4 offset-md-4 text-center">
+				<div class="text-center">
+					<h1 class="display-5">Online Users </h1>
+					<ul class="list-group" id="onlineUsersList"></ul>
+				</div>
+			</div>
+
+
+		</div>
+
+		<div class="row" id="joinUser">
+
+			<div class="col-md-4 offset-md-4 text-center">
+				<form id="userForm" class="form-inlin justify-content-center">
+					<h1 class="display-5">Enter UserName </h1>
+					<div class="form-group form-group-md">
+						<label> </label>
+						<input type="text" class="form-control" id="userName" placeholder="User Name"></input>
+					</div>
+					</br>
+					<input type="button" action="loginUser" class="btn btn-block btn-warning" value="Join"></input>
+				</form>
+			</div>
+
+		</div>
+
+	</div>
+
+
+</body>
+
+</html>
